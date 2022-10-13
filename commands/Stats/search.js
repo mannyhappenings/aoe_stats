@@ -29,10 +29,13 @@ module.exports = {
 
             return
         }
-        const reply = new MessageEmbed()
-            .setTitle('AoeStats for ' + tag)
-            .addField('1v1', players["1v1"]?.map(player => getPlayerTitle(player)).join('\n'))
-            .addField('team', players["team"]?.map(player => getPlayerTitle(player)).join('\n'));
+        const reply = new MessageEmbed().setTitle('AoeStats for ' + tag);
+
+        if (players["1v1"]?.length)
+            reply.addField('1v1', players["1v1"]?.map(player => getPlayerTitle(player)).join('\n'))
+
+        if (players.team?.length)
+            reply.addField('team', players["team"]?.map(player => getPlayerTitle(player)).join('\n'));
 
         message.channel.send(reply)
 
