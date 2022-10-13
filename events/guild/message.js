@@ -43,9 +43,11 @@ module.exports = async (client, message) => {
       return;
     }
     const username = message.content?.match(/!aoe_stats (.*)/)[1];
-    message.channel.send('Fetching data for ' + username);
+
+    console.log('username', username, 'ended');
+    message.channel.send('Getting stats for ' + username);
     const elo = await getPlayerMatches(username);
-    console.log('username', username, elo);
+    console.log('username', username, 'ended');
 
     message.channel.send(
       new Discord.MessageEmbed()
