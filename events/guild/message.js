@@ -42,6 +42,19 @@ module.exports = async (client, message) => {
         );
       return;
     }
+
+    if (!message?.content || message.content.split(' ').length > 2) {
+      const searchCmd = client.commands.get(cmd)
+      if (!searchCmd) {
+        console.log('command', cmd, client.commands, searchCmd)
+        return message.channel.send(
+          new Discord.MessageEmbed({ color: 'RED', description: `❌ ${cmd} Command not found` })
+        );
+      }
+      searchCmd.run(client, message, args)
+      return
+    }
+
     const username = message.content?.match(/!aoe_stats (.*)/)[1];
 
     console.log('username', username, 'started');
