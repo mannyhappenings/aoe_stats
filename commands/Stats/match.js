@@ -30,10 +30,13 @@ module.exports = {
             return
         }
 
-        const reply = new MessageEmbed()
-            .setTitle('Macthes for ' + profileId)
-            .addField('1v1', matches['1v1'])
-            .addField('team', matches.team);
+        const reply = new MessageEmbed({
+            title: 'Macthes for ' + profileId,
+            fields: [
+                { name: '1v1', value: matches['1v1'] ? matches['1v1'] : 'Not found' },
+                { name: 'team', value: matches.team ? matches.team : 'Not found' }
+            ]
+        });
 
         message.channel.send(reply)
 
