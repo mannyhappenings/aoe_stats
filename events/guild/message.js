@@ -44,7 +44,7 @@ module.exports = async (client, message) => {
     }
     const username = message.content?.match(/!aoe_stats (.*)/)[1];
 
-    console.log('username', username, 'ended');
+    console.log('username', username, 'started');
     message.channel.send('Getting stats for ' + username);
     const elo = await getPlayerMatches(username);
     console.log('username', username, 'ended');
