@@ -18,7 +18,7 @@ const client = new Discord.Client({
 //Loading files, with the client variable like Command Handler, Event Handler, ...
 require('../../events/guild/message')(client);
 
-const token = process.env.BOT_TOKEN ?? require('./botconfig/config.json').token
+const token = process.env.BOT_TOKEN ?? require('../../botconfig/config.json').token
 
 //login into the bot
 client.login(token);
