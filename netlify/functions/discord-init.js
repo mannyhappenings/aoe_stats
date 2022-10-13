@@ -5,7 +5,6 @@ const fs = require("fs");
 require('dotenv/config'); //this package is for reading files and getting their inputs
 
 const handler = () => {
-
     //Creating the Discord.js Client for This Bot with some default settings ;) and with partials, so you can fetch OLD messages
     const client = new Discord.Client({
         messageCacheLifetime: 60,
